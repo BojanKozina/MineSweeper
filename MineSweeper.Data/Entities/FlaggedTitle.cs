@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MineSweeper.Data
+namespace MineSweeper.Data.Entities
 {
-    internal class Title
+    internal class FlaggedTitle
     {
     }
 }

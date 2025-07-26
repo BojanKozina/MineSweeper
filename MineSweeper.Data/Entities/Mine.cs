@@ -1,4 +1,4 @@
-﻿namespace MineSweeper.Data
+﻿namespace MineSweeper.Data.Entities
 {
     public class Mine
     {
