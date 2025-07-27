@@ -49,7 +49,14 @@
             helpTopicsToolStripMenuItem = new ToolStripMenuItem();
             aboutMineSweeperToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            pnlTitleBar = new Panel();
+            pictureBox1 = new PictureBox();
+            btnMinimize = new Button();
+            btnResize = new Button();
+            btnExit = new Button();
             msMenu.SuspendLayout();
+            pnlTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // msMenu
@@ -57,14 +64,15 @@
             msMenu.Items.AddRange(new ToolStripItem[] { tsmiGameMenu, tsmiHelp });
             msMenu.Location = new Point(0, 0);
             msMenu.Name = "msMenu";
-            msMenu.Size = new Size(303, 24);
+            msMenu.Padding = new Padding(6, 40, 0, 5);
+            msMenu.Size = new Size(280, 64);
             msMenu.TabIndex = 0;
             // 
             // tsmiGameMenu
             // 
             tsmiGameMenu.DropDownItems.AddRange(new ToolStripItem[] { tsmiGameNew, toolStripSeparator1, tsmiGameBeginner, tsmiGameIntermediate, tsmiGameExpert, tsmiGameCustom, toolStripSeparator2, tsmiGameMarks, tsmiGameColor, toolStripSeparator4, tsmiGameBestTimes, toolStripSeparator3, tsmiGameExit });
             tsmiGameMenu.Name = "tsmiGameMenu";
-            tsmiGameMenu.Size = new Size(50, 20);
+            tsmiGameMenu.Size = new Size(50, 19);
             tsmiGameMenu.Text = "G̲ame";
             // 
             // tsmiGameNew
@@ -161,7 +169,7 @@
             // 
             tsmiHelp.DropDownItems.AddRange(new ToolStripItem[] { helpTopicsToolStripMenuItem, aboutMineSweeperToolStripMenuItem });
             tsmiHelp.Name = "tsmiHelp";
-            tsmiHelp.Size = new Size(44, 20);
+            tsmiHelp.Size = new Size(44, 19);
             tsmiHelp.Text = "H̲elp";
             // 
             // helpTopicsToolStripMenuItem
@@ -182,12 +190,89 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // pnlTitleBar
+            // 
+            pnlTitleBar.BackColor = Color.DarkBlue;
+            pnlTitleBar.Controls.Add(pictureBox1);
+            pnlTitleBar.Controls.Add(btnMinimize);
+            pnlTitleBar.Controls.Add(btnResize);
+            pnlTitleBar.Controls.Add(btnExit);
+            pnlTitleBar.Location = new Point(4, 3);
+            pnlTitleBar.Name = "pnlTitleBar";
+            pnlTitleBar.Size = new Size(272, 27);
+            pnlTitleBar.TabIndex = 1;
+            pnlTitleBar.MouseDown += pnlTitleBar_MouseDown;
+            pnlTitleBar.MouseMove += pnlTitleBar_MouseMove;
+            pnlTitleBar.MouseUp += pnlTitleBar_MouseUp;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(8, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(19, 18);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.BackColor = Color.Transparent;
+            btnMinimize.FlatAppearance.BorderSize = 0;
+            btnMinimize.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnMinimize.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnMinimize.FlatStyle = FlatStyle.Flat;
+            btnMinimize.Image = MineSweeper.GUI.Properties.Resources.MinimizeButton_DefaultState;
+            btnMinimize.Location = new Point(213, 6);
+            btnMinimize.Margin = new Padding(0);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(16, 16);
+            btnMinimize.TabIndex = 4;
+            btnMinimize.UseVisualStyleBackColor = false;
+            btnMinimize.MouseDown += btnMinimize_MouseDown;
+            btnMinimize.MouseUp += btnMinimize_MouseUp;
+            // 
+            // btnResize
+            // 
+            btnResize.BackColor = Color.Transparent;
+            btnResize.Enabled = false;
+            btnResize.FlatAppearance.BorderSize = 0;
+            btnResize.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnResize.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnResize.FlatStyle = FlatStyle.Flat;
+            btnResize.Image = MineSweeper.GUI.Properties.Resources.ResizeButton_DisabledState;
+            btnResize.Location = new Point(230, 6);
+            btnResize.Margin = new Padding(0);
+            btnResize.Name = "btnResize";
+            btnResize.Size = new Size(16, 16);
+            btnResize.TabIndex = 3;
+            btnResize.UseVisualStyleBackColor = false;
+            // 
+            // btnExit
+            // 
+            btnExit.BackColor = Color.Transparent;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnExit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Image = MineSweeper.GUI.Properties.Resources.ExitButtot_DefaultState;
+            btnExit.Location = new Point(250, 6);
+            btnExit.Margin = new Padding(0);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(16, 16);
+            btnExit.TabIndex = 2;
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.MouseDown += btnExit_MouseDown;
+            btnExit.MouseUp += btnExit_MouseUp;
+            // 
             // frmMineSweeper
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(303, 432);
+            BackColor = SystemColors.ControlLight;
+            ClientSize = new Size(280, 412);
+            Controls.Add(pnlTitleBar);
             Controls.Add(msMenu);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = msMenu;
             Name = "frmMineSweeper";
@@ -196,6 +281,8 @@
             KeyUp += frmMineSweeper_KeyUp;
             msMenu.ResumeLayout(false);
             msMenu.PerformLayout();
+            pnlTitleBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -221,5 +308,10 @@
         private ToolStripMenuItem helpTopicsToolStripMenuItem;
         private ToolStripMenuItem aboutMineSweeperToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip1;
+        private Panel pnlTitleBar;
+        private Button btnExit;
+        private Button btnResize;
+        private Button btnMinimize;
+        private PictureBox pictureBox1;
     }
 }
